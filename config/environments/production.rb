@@ -19,7 +19,8 @@ Lodoss::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'social.zahar-test.com' }
+  config.action_mailer.delivery_method     = :sendmail
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
