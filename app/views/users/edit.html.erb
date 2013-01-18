@@ -1,0 +1,34 @@
+<div class="five columns centered">
+  <%= form_for :user, :method => :put, :url => "/users/#{@user.id}", :multipart => true, :html => { 'id' => 'signup' } do |f| %>
+    <%= render 'users/partials/error_messages' %>
+    <fieldset>
+      <legend>Edit Profile</legend>
+      <div class="columns centered">
+        <label>Login:</label>
+        <%= f.text_field :login, {'type' => 'text', 'class' => 'seven'}  %>
+      </div>
+      <div class="columns centered">
+        <label>Email:</label>
+        <%= f.email_field :email, {'type' => 'text', 'class' => 'seven'}  %>
+      </div>
+      <div class="columns centered">
+        <label>Firstname:</label>
+        <%= f.text_field :firstname, {'type' => 'text', 'class' => 'seven'}  %>
+      </div>
+      <div class="columns centered">
+        <label>Lastname:</label>
+        <%= f.text_field :lastname, {'type' => 'text', 'class' => 'seven'}  %>
+      </div>
+      <div class="columns centered">
+        <label>Avatar:</label>
+        <%= image_tag @user.avatar_url %>
+        <%= f.file_field :avatar %>
+      </div>
+      </br>
+      <div class="columns centered">
+        <%= f.submit "Edit", {'class' => 'radius button small'} %>
+      </div>
+      <br>
+    </fieldset>
+  <% end %>
+</div>

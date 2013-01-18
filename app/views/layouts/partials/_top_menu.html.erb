@@ -1,0 +1,39 @@
+<div class="row">
+  <!-- Navigation -->
+  <% if signed_in? %>
+    <script>
+      var current_user = "<%= @current_user.id %>";
+    </script>
+    <nav class="top-bar contain-to-grid">
+      <ul>
+        <li class="name">
+          <h1>
+            <a data-bypass="true" href="/users/<%= @current_user.id %>"><%= "#{@current_user.firstname} #{@current_user.lastname}" %></a>
+          </h1></li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+      </ul>
+      <section>
+        <ul class="left">
+          <li class="has-dropdown">
+            <a href="/users/<%= @current_user.id %>">My Page</a>
+            <ul class="dropdown">
+              <li><a data-bypass="true" href="/edit">Edit Profile</a></li>
+              <li><a data-bypass="true" href="<%= signout_path %>">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="right">
+          <li class="search">
+            <form>
+              <input type="search" placeholder="Find user">
+            </form>
+          </li>
+          <li class="has-button">
+            <a data-bypass="true" class="search small button" href="#">Search</a>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  <% end %>
+  <!-- End Navigation -->
+</div>

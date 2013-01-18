@@ -1,0 +1,23 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: ruby
+  username: root
+  password: "123456"
+  host: localhost
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: ruby
+  username: root
+  password: "123456"
+  host: localhost
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: ruby
+  username: root
+  password: "123456"
+  host: localhost

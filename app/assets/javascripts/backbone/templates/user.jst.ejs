@@ -1,0 +1,48 @@
+<div class="six columns push-three">
+  <div class="row">
+    <div aria-live="polite" id="form-comment"></div>
+    <div aria-live="polite" id="comments"><strong>Comments</strong>:</div>
+  </div>
+</div>
+<div class="three columns pull-six">
+  <div class="panel">
+    <a href="/users/<%= user.id %>"><img alt="<%= user.firstname %>" src="<%= user.avatar.url %>"></a>
+    <h5><a href="/users/<%= user.id %>">
+      <%= user.firstname %>
+      <%= user.lastname %></a>
+    </h5>
+    <% if (current_user != user.id) { %>
+      <ul class="vertical tabs">
+        <li id="friends">
+          <% if (user.status_friend == 3) { %>
+            <a href="#" data-bypass="true" class="add-friend" data-user="<%= user.id %>">Add to Friends</a>
+          <% } else { %>
+            <% if (user.status_friend == 1) { %>
+              <a href="#" data-bypass="true" class="remove-friend" data-user="<%= user.id %>">Remove from Friends</a>
+            <% } else { %>
+              <% if (user.status_friend == 2) { %>
+                <a href="#" data-bypass="true" class="remove-friend" data-user="<%= user.id %>">Remove request</a>
+              <% } %>
+            <% } %>
+            </a>
+          <% } %>
+          </li>
+          <% if (user.status_friend == 0) { %>
+            <li><a href="#" data-bypass="true" class="add-friend" data-user="<%= user.id %>">Accept request</a></li>
+            <li><a href="#" data-bypass="true" class="remove-friend" data-user="<%= user.id %>">Reject request</a></li>
+          <% } %>
+        <li><a href="/messages/<%= user.id %>">Write Message</a></li>
+      </ul>
+    <% } %>
+  </div>
+</div>
+
+<aside class="two columns" id="list-pending-friends">
+  <h5><strong>Pending friends:</strong></h5>
+</aside>
+
+<aside class="two columns" id="list-friends">
+  <h5><strong>Friends:</strong></h5>
+</aside>
+
+<div class="five columns centered"></div>

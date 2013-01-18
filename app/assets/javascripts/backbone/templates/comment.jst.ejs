@@ -1,0 +1,12 @@
+<hr data-id="<%= user.id %>">
+<% if(current_user == user.side_id || current_user == user.user_id) { %>
+  <a data-bypass="true" href="" class="remove-comment right">&times;</a>
+<% } %>
+<div class="two columns mobile-one">
+  <a href="/users/<%= user.user_id %>">
+    <img alt="<%= user.firstname %>" src="<%= user.avatar.url %>">
+    </a>
+</div>
+<div class="ten columns">
+  <p><strong><%= user.firstname %> <%= user.lastname %> said: </strong><%= user.text %></p>
+</div>

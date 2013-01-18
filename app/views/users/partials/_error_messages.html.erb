@@ -1,0 +1,12 @@
+<% if !flash.alert.nil? %>
+  <div id="error_explanation">
+  <% flash.alert.each do |msg| %>
+    <div class="columns centered alert-box alert">
+      <%= msg %>
+      <a href="" class="close">&times;</a>
+    </div>
+    <div class="columns centered"></div>
+  <% end %>
+  <% flash.clear %>
+  </div>
+<% end %>

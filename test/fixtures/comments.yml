@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  text: MyString
+  user_id: 1
+  side_id: 1
+  pid: 1
+
+two:
+  text: MyString
+  user_id: 1
+  side_id: 1
+  pid: 1

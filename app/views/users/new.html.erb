@@ -1,0 +1,33 @@
+<div class="five columns centered">
+  <%= form_for :user, :url => '/users', :html => { 'id' => 'signup' } do |f| %>
+    <%= render 'users/partials/error_messages' %>
+    <fieldset>
+      <legend>Registration Form</legend>
+      <div class="columns centered">
+        <%= f.text_field :login, {'placeholder' => 'Login', 'type' => 'text', 'class' => 'five'}  %>
+      </div>
+      <div class="columns centered">
+        <%= f.email_field :email, {'placeholder' => 'Email', 'type' => 'text', 'class' => 'five'}  %>
+      </div>
+      <div class="columns centered">
+        <%= f.text_field :firstname, {'placeholder' => 'Firstname', 'type' => 'text', 'class' => 'five'}  %>
+      </div>
+      <div class="columns centered">
+        <%= f.text_field :lastname, {'placeholder' => 'Lastname', 'type' => 'text', 'class' => 'five'}  %>
+      </div>
+      <div class="columns centered">
+        <%= f.password_field :password, {'placeholder' => 'Password', 'class' => 'five'} %>
+      </div>
+      <div class="columns centered">
+        <%= f.password_field :password_confirmation, {'placeholder' => 'Confirm password', 'type' => 'password', 'class' => 'five'}  %>
+      </div>
+      <div class="columns centered">
+        <%= f.submit "Signup", {'class' => 'radius button small'} %>
+      </div>
+      <br>
+      <p><%= link_to "Sing In", signin_path, {"data-bypass" => "true"} %> 
+        <span style="margin-left: 20px"><%= link_to "Forgot to password?", forgotpassword_path, {"data-bypass" => "true"} %></span>
+      </p>
+    </fieldset>
+  <% end %>
+</div>

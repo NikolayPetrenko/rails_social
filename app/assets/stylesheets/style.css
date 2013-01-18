@@ -1,0 +1,31 @@
+.error {color: red}
+.clear {
+    clear: both;
+}
+#notice {
+    display: none;
+}
+#list-pending-friends, #list-friends {
+    margin: -18px 0 0 75px;
+    display: none;
+}
+
+.search-box {
+    width: 212px;
+    position: absolute;
+    top: 98%;
+    left: 70%;
+    z-index: 99999999999;
+}
+
+.content {
+    min-height: 400px;
+}
+
+#canvasLoader {
+    display: none;
+}
+
+.spinner {
+    margin: 0 auto;
+}

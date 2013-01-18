@@ -1,0 +1,23 @@
+<div class="five columns centered">
+  <%= form_for :session, :url => sessions_path, :html => { 'id' => 'login' } do |f| %>
+    <fieldset>
+      <legend>Login</legend>
+      <div class="columns centered">
+        <%= f.text_field :login, {'placeholder' => 'Login', 'type' => 'text', 'class' => 'five'}  %>
+      </div>
+      <div class="columns centered">
+        <%= f.password_field :password, {'placeholder' => 'Password', 'class' => 'five'} %>
+      </div>
+      <div class="columns centered">
+        <%= f.submit "Login", {'class' => 'radius button small'} %>
+      </div>
+      <br>      
+      <p>
+        <%= link_to "Registration", signup_path, {"data-bypass" => "true"} %> 
+        <span style="margin-left: 20px">
+          <%= link_to "Forgot to password?", forgotpassword_path, {"data-bypass" => "true"} %>
+        </span>
+      </p>
+    </fieldset>
+  <% end %>
+</div>

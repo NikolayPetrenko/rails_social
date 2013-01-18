@@ -1,0 +1,7 @@
+<form accept-charset="UTF-8" action="/comments/new" method="get">
+    <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+    <textarea cols="40" id="comment_text" name="comment[text]" placeholder="New comment" rows="2"></textarea>
+    <input id="comment_side_id" name="comment[side_id]" type="hidden" value="<%= user.side_id %>">
+    <input id="comment_pid" name="comment[pid]" type="hidden" value="0">
+    <input class="radius button small" type="Submit" value="Send">
+</form>

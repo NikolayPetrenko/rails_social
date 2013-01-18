@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social Network | <%= @title %></title>
+      <%= stylesheet_link_tag "application", :media => "all" %>
+      <%= csrf_meta_tags %>
+  </head>
+  <body>
+  <%= render 'layouts/partials/top_menu' %>
+    <div class="row content">
+      <% if flash.any? %>
+        <% flash.each do |key, value| %>
+          <div class="five columns centered alert-box <%= key %>">
+            <%= value %>
+            <a data-bypass="true" href="" class="close">&times;</a>
+          </div>
+        <% end %>
+      <% end %>
+      <%= yield %>
+      <div class="five columns centered"></div>
+    </div>
+    <%= render 'layouts/partials/footer' %>
+    <script src="http://js.pusher.com/1.12/pusher.min.js"></script>
+    <%= javascript_include_tag "application" %>
+    <div id="canvasLoader">
+      <div class="backdrop"></div>
+    </div>
+  </body>
+</html>
