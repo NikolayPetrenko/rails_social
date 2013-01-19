@@ -9,15 +9,15 @@ class SessionsController < LoginController
   end
 
   def create
-  	user = User.authenticate(params[:session][:login], params[:session][:password])
-  	if user.nil?
+  	@user = User.authenticate(params[:session][:login], params[:session][:password])
+  	if @user.nil?
   		flash.now[:alert] = "Wrong combination login/password."
   		@title = "Login"
   		render "new"
   	else
-  		sign_in user
-      #render :text => "profile/#{user.id}".inspect and return false
-  		redirect_to "/users/#{user.id}"
+  		sign_in @user
+      Friendship.create(:user_id => 1, :friend_id => @user.id)
+  		redirect_to "/users/#{@user.id}"
   	end
   end
 
