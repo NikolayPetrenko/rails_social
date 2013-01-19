@@ -16,7 +16,6 @@ class SessionsController < LoginController
   		render "new"
   	else
   		sign_in @user
-      Friendship.create(:user_id => 1, :friend_id => @user.id)
   		redirect_to "/users/#{@user.id}"
   	end
   end

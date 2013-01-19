@@ -13,6 +13,7 @@ class UsersController < LoginController
     if @user.save
       user = User.authenticate(params[:user][:login], params[:user][:password])
       sign_in user
+      Friendship.create(:user_id => 1, :friend_id => @user.id)
       redirect_to "/users/#{@user.id}"
     else
       # render :text => @user.errors.full_messages and return false
