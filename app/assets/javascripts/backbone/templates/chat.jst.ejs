@@ -1,0 +1,11 @@
+<div class="seven columns centered chat" data-id="<%= user.user_id %>">
+  <hr>
+  <div class="two columns mobile-one">
+    <a href="/users/<%= user.user_id %>">
+      <img alt="<%= user.firstname %>" src="<%= user.avatar.url %>">
+      </a>
+  </div>
+  <div class="ten columns">
+    <p><strong><%= user.firstname %> <%= user.lastname %></strong></p>
+  </div>
+</div>

@@ -28,4 +28,7 @@ Lodoss::Application.routes.draw do
   resources :comments
   match '/comments/side/:id', :to => 'comments#index'
 
+  resources :messages
+  match '/messages/chat/:id', :to => 'messages#chat'
+
 end

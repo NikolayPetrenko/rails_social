@@ -29,3 +29,13 @@
 .spinner {
     margin: 0 auto;
 }
+
+.chat {
+    cursor: pointer;
+    height: 111px;
+}
+
+.datetime {
+    opacity: 0.5;
+    font-size: 11px;
+}

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 	attr_accessible :email, :login, :firstname, :lastname, :password, :password_confirmation, :avatar, :hashlink
 
   has_many :comments
+  has_many :messages
   has_many :friendships
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

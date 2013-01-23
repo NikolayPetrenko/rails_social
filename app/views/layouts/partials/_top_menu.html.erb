@@ -18,6 +18,7 @@
             <a href="/users/<%= @current_user.id %>">My Page</a>
             <ul class="dropdown">
               <li><a data-bypass="true" href="/edit">Edit Profile</a></li>
+              <li><a href="/messages">Messages</a></li>
               <li><a data-bypass="true" href="<%= signout_path %>">Logout</a></li>
             </ul>
           </li>

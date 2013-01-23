@@ -26,16 +26,4 @@ class CommentsController < LoginController
     render :json => { :result => "ok" }
   end
 
-  def show
-
-  end
-
-  def edit
-
-  end
-
-  def update
-
-  end
-
 end

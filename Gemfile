@@ -15,7 +15,6 @@ gem 'multi_json', '~> 1.5.0'
 gem 'signature', '~> 0.1.6'
 gem 'pusher', '~> 0.11.2'
 
-
 gem 'mysql2'
 gem 'simple-navigation'
 gem 'carrierwave'

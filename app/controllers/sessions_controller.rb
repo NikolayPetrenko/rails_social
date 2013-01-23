@@ -9,14 +9,14 @@ class SessionsController < LoginController
   end
 
   def create
-  	@user = User.authenticate(params[:session][:login], params[:session][:password])
-  	if @user.nil?
+  	user = User.authenticate(params[:session][:login], params[:session][:password])
+  	if user.nil?
   		flash.now[:alert] = "Wrong combination login/password."
   		@title = "Login"
   		render "new"
   	else
-  		sign_in @user
-  		redirect_to "/users/#{@user.id}"
+  		sign_in user
+  		redirect_to "/users/#{user.id}"
   	end
   end
 

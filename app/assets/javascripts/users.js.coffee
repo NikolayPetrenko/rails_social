@@ -4,7 +4,6 @@ users =
     do @addFriend
     do @removeFriend
     do @searchInit
-#    do @searchAutocomplete
 
   addFriend: ->
     $(".add-friend").live "click", (e) ->
@@ -40,6 +39,8 @@ users =
         query = _((search).val()).strip()
         if !_(query).empty()
           $('#canvasLoader').show()
+          $("#chat-box").empty()
+          $("#form-message").empty()
           users.search query
 
 #  searchAutocomplete: ->
