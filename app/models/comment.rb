@@ -7,6 +7,7 @@ class Comment < ActiveRecord::Base
     select('users.id AS user_id, users.avatar, users.firstname, users.lastname, comments.text, comments.side_id, comments.id AS id')
     .joins(:user)
     .where('side_id = ?', side_id)
+    .order('comments.created_at ASC')
   end
 
 end
