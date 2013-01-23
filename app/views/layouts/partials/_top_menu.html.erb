@@ -15,10 +15,14 @@
       <section>
         <ul class="left">
           <li class="has-dropdown">
-            <a href="/users/<%= @current_user.id %>">My Page</a>
+            <a data-bypass="true" href="/users/<%= @current_user.id %>">My Page</a>
             <ul class="dropdown">
               <li><a data-bypass="true" href="/edit">Edit Profile</a></li>
-              <li><a href="/messages">Messages</a></li>
+              <% if @message_bapass %>
+                <li><a data-bypass="true" href="/messages">Messages</a></li>
+              <% else %>
+                <li><a href="/messages">Messages</a></li>
+              <% end %>
               <li><a data-bypass="true" href="<%= signout_path %>">Logout</a></li>
             </ul>
           </li>

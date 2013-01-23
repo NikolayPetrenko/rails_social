@@ -92,6 +92,7 @@ class UsersController < LoginController
 
   def update
     @user = User.find current_user.id
+    @message_bapass = 1
     if !params[:user].nil?
       if @user.update_attributes(params[:user])
         flash[:success] = "Profile success updated"
