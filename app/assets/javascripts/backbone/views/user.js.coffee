@@ -17,7 +17,7 @@ class Lodoss.Views.User extends Backbone.View
     @renderFriends(user.id)
     if parseInt(current_user) is user.id
       @renderPendingFriends(user.id)
-    @realtimeRenderComment(user.id)
+#    @realtimeRenderComment(user.id)
     @realtimeDeleteComment(user.id)
     $("input[type='search']").val('')
 
@@ -50,10 +50,11 @@ class Lodoss.Views.User extends Backbone.View
       error: ->
 
   realtimeRenderComment: (side) ->
-    pusher  = new Pusher("4624f11f824b9e6718ef")
-    channel = pusher.subscribe("comment_for_" + side.toString())
+    window.pusher  = new Pusher("4624f11f824b9e6718ef")
+    channel = window.pusher.subscribe("comment_for_" + side.toString())
     channel.bind "new-comment", (data) ->
       if data.user.id isnt parseInt(current_user)
+        soundManager.play("new_comment")
         model = new Lodoss.Models.Comment()
         model.attributes         = data.user
         model.attributes.text    = data.comment.text

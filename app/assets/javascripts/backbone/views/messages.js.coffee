@@ -1,6 +1,6 @@
 class Lodoss.Views.Messages extends Backbone.View
 
-  el: "#chat-box"
+  el: "#dialog"
 
   initialize: ->
     @render()

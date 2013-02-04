@@ -13,6 +13,7 @@ class Lodoss.Views.FormComment extends Backbone.View
   save: (e) ->
     e.preventDefault()
     $('#canvasLoader').show()
+    $(@el).find(".button").attr('disabled', true);
     @model = new Lodoss.Models.Comment()
     data =
       text:    $("#comment_text").val()
@@ -21,6 +22,7 @@ class Lodoss.Views.FormComment extends Backbone.View
       pid:     0
     self = @
     if !_(_(data.text).strip()).empty()
+      data.text = data.text.replace /(http|https):\/\/[\w\.\-]+\b/g, (a) -> "<a data-bypass=\"true\" href=\"" + a + "\" target=\"_blank\">" + a + "</a>"
       @model.save data,
         success: (model, resp) ->
           self.model.attributes.avatar    = resp.user.avatar
@@ -32,3 +34,4 @@ class Lodoss.Views.FormComment extends Backbone.View
           window.comments.reset()
           $(self.el).find("#comment_text").val('')
           $('#canvasLoader').hide()
+          $(self.el).find(".button").attr('disabled', false);

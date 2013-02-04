@@ -39,3 +39,7 @@
     opacity: 0.5;
     font-size: 11px;
 }
+
+#comments p, #chat-box p {
+    word-wrap: break-word;
+}

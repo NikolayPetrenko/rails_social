@@ -1,6 +1,6 @@
-<form accept-charset="UTF-8" action="/messages/new" method="get">
+<form accept-charset="UTF-8" action="/messages/new" method="get" onkeypress="if ( event.keyCode == 13 ) {event.preventDefault(); return $(this).find('.button').trigger('click')}">
     <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
     <textarea cols="40" id="message_text" name="message[text]" placeholder="Your message" rows="2"></textarea>
     <input id="message_receiver_id" name="message[receiver_id]" type="hidden" value="<%= user.receiver_id %>">
-    <input class="radius button small" type="Submit" value="Send">
+    <input class="radius button small" type="submit" value="Send">
 </form>

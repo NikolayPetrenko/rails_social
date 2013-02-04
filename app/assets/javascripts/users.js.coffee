@@ -4,11 +4,23 @@ users =
     do @addFriend
     do @removeFriend
     do @searchInit
+    do @soundForUser
 
   addFriend: ->
     $(".add-friend").live "click", (e) ->
       e.preventDefault()
       users.actionFromFriend($(@), "add")
+
+  soundForUser: ->
+    soundManager.setup
+      url: "/sound/swf/"
+      onready: ->
+        soundManager.createSound
+          id:  "new_message"
+          url: "/sound/new_message.mp3"
+        soundManager.createSound
+          id:  "new_comment"
+          url: "/sound/new_comment.mp3"
 
   removeFriend: ->
     $(".remove-friend").live "click", (e) ->
@@ -42,21 +54,6 @@ users =
           $("#chat-box").empty()
           $("#form-message").empty()
           users.search query
-
-#  searchAutocomplete: ->
-#    $('input[type="search"]').on "keyup", (e) ->
-#      e.preventDefault()
-#      query = _($(@).val()).strip()
-#      if !_(query).empty()
-#        $(".search-box").empty()
-#        query_users = new Lodoss.Collections.Users()
-#        query_users.url = "/users/search/" + query
-#        query_users.fetch
-#          success: ->
-#            view_search_user = new Lodoss.Views.Friends(collection: query_users)
-#            view_search_user.el = ".search-box"
-#            view_search_user.render()
-#          error: ->
 
   search: (query) ->
     query_users = new Lodoss.Collections.Users()

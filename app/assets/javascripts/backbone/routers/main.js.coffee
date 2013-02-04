@@ -37,6 +37,7 @@ class Lodoss.Routers.Main extends Backbone.Router
   dialog: (id) ->
     $("#user-box").empty()
     $("#chat-box").addClass("six columns centered").html("<h3>Messages:</h3>")
+    $("#chat-box").append("<div id='dialog'></div>")
     @newMessageReaitime(id)
     @deleteMessageRealtime(id)
     if window.view_form_message is undefined
@@ -65,9 +66,10 @@ class Lodoss.Routers.Main extends Backbone.Router
     pusher  = new Pusher("4624f11f824b9e6718ef")
     channel = pusher.subscribe("message_for_" + current_user.toString() + "_" + id.toString())
     channel.bind "new-message", (data) ->
+      soundManager.play("new_message", {volume: 50})
       model = new Lodoss.Models.Message()
-      model.attributes    = data.user
-      model.attributes.text        = data.message.text
+      model.attributes           = data.user
+      model.attributes.text      = data.message.text
       model.attributes.id        = data.message.id
       model.attributes.datetime  = data.message.datetime
       model.set({ id: data.message.id })

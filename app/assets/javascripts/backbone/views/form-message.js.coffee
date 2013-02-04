@@ -12,7 +12,8 @@ class Lodoss.Views.FormMessage extends Backbone.View
 
   save: (e) ->
     e.preventDefault()
-    $('#canvasLoader').show()
+    $("#canvasLoader").show()
+    $(@el).find(".button").attr('disabled', true);
     @model.clear();
     data =
       text        : $("#message_text").val()
@@ -20,6 +21,7 @@ class Lodoss.Views.FormMessage extends Backbone.View
       receiver_id : $("#message_receiver_id").val()
     self = @
     if !_(_(data.text).strip()).empty()
+      data.text = data.text.replace /(http|https):\/\/[\w\.\-]+\b/g, (a) -> "<a data-bypass=\"true\" href=\"" + a + "\" target=\"_blank\">" + a + "</a>"
       @model.save data,
         success: (model, resp) ->
           self.model.attributes.avatar    = resp.user.avatar
@@ -32,3 +34,4 @@ class Lodoss.Views.FormMessage extends Backbone.View
           window.messages.reset()
           $(self.el).find("#message_text").val('')
           $('#canvasLoader').hide()
+          $(self.el).find(".button").attr('disabled', false);
