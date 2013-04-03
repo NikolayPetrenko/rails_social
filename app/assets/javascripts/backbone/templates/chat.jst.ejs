@@ -2,10 +2,10 @@
   <hr>
   <div class="two columns mobile-one">
     <a href="/users/<%= user.user_id %>">
-      <img alt="<%= escape(user.firstname) %>" src="<%= user.avatar.url %>">
+      <img alt="<%= _.escape(user.firstname) %>" src="<%= user.avatar.url %>">
       </a>
   </div>
   <div class="ten columns">
-    <p><strong><%= escape(user.firstname) %> <%= escape(user.lastname) %></strong></p>
+    <p><strong><%= _.escape(user.firstname) %> <%= _.escape(user.lastname) %></strong></p>
   </div>
 </div>

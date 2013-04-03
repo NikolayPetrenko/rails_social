@@ -6,10 +6,10 @@
 </div>
 <div class="three columns pull-six">
   <div class="panel">
-    <a href="/users/<%= user.id %>"><img alt="<%= escape(user.firstname) %>" src="<%= user.avatar.url %>"></a>
+    <a href="/users/<%= user.id %>"><img alt="<%= _.escape(user.firstname) %>" src="<%= user.avatar.url %>"></a>
     <h5><a href="/users/<%= user.id %>">
-      <%= escape(user.firstname) %>
-      <%= escape(user.lastname) %></a>
+      <%= _.escape(user.firstname) %>
+      <%= _.escape(user.lastname) %></a>
     </h5>
     <% if (current_user != user.id) { %>
       <ul class="vertical tabs">
