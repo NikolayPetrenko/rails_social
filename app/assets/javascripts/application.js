@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require underscore
 //= require soundmanager2-jsmin
 //= require spin

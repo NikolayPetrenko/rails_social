@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(:version => 20130120124507) do
   add_index "messages", ["created_at"], :name => "index_messages_on_created_at"
 
   create_table "users", :force => true do |t|
-    t.string   "login"
     t.string   "email"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false

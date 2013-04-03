@@ -4,13 +4,13 @@
 <% } %>
 <div class="two columns mobile-one">
   <a href="/users/<%= user.user_id %>">
-    <img alt="<%= user.firstname %>" src="<%= user.avatar.thumb.url %>">
+    <img alt="<%= escape(user.firstname) %>" src="<%= user.avatar.thumb.url %>">
     </a>
 </div>
 <div class="ten columns">
   <p>
-    <strong><%= user.firstname %> <%= user.lastname %></strong>
+    <strong><%= escape(user.firstname) %> <%= escape(user.lastname) %></strong>
     <span class="right datetime"><%= user.datetime %></span>
   </p>
-  <p><%= user.text %></p>
+  <p><%= escape(user.text) %></p>
 </div>

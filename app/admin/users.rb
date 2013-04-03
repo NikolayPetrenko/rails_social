@@ -1,7 +1,6 @@
 ActiveAdmin.register User do
 
   index do
-    column :login
     column :email
     column :firstname
     column :lastname
@@ -16,19 +15,15 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs "User Info" do
       if f.object.new_record?
-        f.input :login
         f.input :email
         f.input :firstname
         f.input :lastname
         f.input :password
         f.input :password_confirmation
       else
-        f.input :login
         f.input :email
         f.input :firstname
         f.input :lastname
-        #f.input :password
-        #f.input :password_confirmation
       end
     end
     f.buttons

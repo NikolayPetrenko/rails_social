@@ -4,9 +4,9 @@
 <% } %>
 <div class="two columns mobile-one">
   <a href="/users/<%= user.user_id %>">
-    <img alt="<%= user.firstname %>" src="<%= user.avatar.url %>">
+    <img alt="<%= escape(user.firstname) %>" src="<%= user.avatar.url %>">
     </a>
 </div>
 <div class="ten columns">
-  <p><strong><%= user.firstname %> <%= user.lastname %> said: </strong><%= user.text %></p>
+  <p><strong><%= escape(user.firstname) %> <%= escape(user.lastname) %> said: </strong><%= escape(user.text) %></p>
 </div>

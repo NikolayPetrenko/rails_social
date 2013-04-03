@@ -9,7 +9,7 @@ class SessionsController < LoginController
   end
 
   def create
-  	user = User.authenticate(params[:session][:login], params[:session][:password])
+  	user = User.authenticate(params[:session][:email], params[:session][:password])
   	if user.nil?
   		flash.now[:alert] = "Wrong combination login/password."
   		@title = "Login"

@@ -11,7 +11,7 @@ class UsersController < LoginController
   def create
     @user = User.new(params[:user])
     if @user.save
-      user = User.authenticate(params[:user][:login], params[:user][:password])
+      user = User.authenticate(params[:user][:email], params[:user][:password])
       sign_in user
       Friendship.create(:user_id => 1, :friend_id => user.id)
       redirect_to "/users/#{@user.id}"
@@ -23,7 +23,7 @@ class UsersController < LoginController
   end
 
 	def show
-    redirect_to signup_path if current_user.nil?
+    redirect_to root_path if current_user.nil?
     @user = User.find params[:id]
     if @user != current_user
       @current_friend = Friendship.where("(user_id = '#{@user.id}' AND friend_id = '#{current_user.id}') OR (user_id = '#{current_user.id}' AND friend_id = '#{@user.id}')").first
@@ -105,5 +105,4 @@ class UsersController < LoginController
       render "edit"
     end
   end
-
 end

@@ -1,9 +1,10 @@
+<h1>Social Network</h1>
 <div class="five columns centered">
   <%= form_for :session, :url => sessions_path, :html => { 'id' => 'login' } do |f| %>
     <fieldset>
       <legend>Login</legend>
       <div class="columns centered">
-        <%= f.text_field :login, {'placeholder' => 'Login', 'type' => 'text', 'class' => 'five'}  %>
+        <%= f.text_field :email, {'placeholder' => 'Email', 'type' => 'text', 'class' => 'five'}  %>
       </div>
       <div class="columns centered">
         <%= f.password_field :password, {'placeholder' => 'Password', 'class' => 'five'} %>
@@ -21,3 +22,27 @@
     </fieldset>
   <% end %>
 </div>
+<div class="columns centered" style="margin-top: 50px;">
+  <div id="slider" class="two columnt">
+    <img src="images_for_slider/Ruby_on_Rails.jpg" alt="Ruby on Rails" />
+    <img src="images_for_slider/Backbone.js.jpg" alt="Backbone.js" />
+    <img src="images_for_slider/zurb-foundation.png" alt="Backbone.js" />
+    <img src="images_for_slider/eventmachine.jpg" alt="EventMachine" />
+    <img src="images_for_slider/social.jpg" alt="Social" />
+  </div>
+  <div class="description three columnt left">
+    <p><strong>We used technology for the development of Social Network:</strong></p>
+    <ul>
+      <li>Ruby on Rails (version 3.2.11)</li>
+      <li>Backbone.js (0.9.10)</li>
+      <li>Zurb Foundation on frontend</li>
+      <li>EventMachine for real-time</li>
+    </ul>
+  </div>
+</div>
+<p><strong>What can you do on Social Network?</strong></p>
+<ul>
+  <li>Find people with whom you've studied, worked or met on vacation.</li>
+  <li>Learn more about people around you and make new friends.</li>
+  <li>Stay in touch with loved ones.</li>
+</ul>

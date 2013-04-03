@@ -1,8 +1,12 @@
 Lodoss::Application.routes.draw do
 
-  ActiveAdmin.routes(self)
+  get "pages/index"
+
+  get "pages/contact"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+
+  ActiveAdmin.routes(self)
 
   #defaul router
   root :to => 'sessions#new'
